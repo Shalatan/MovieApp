@@ -52,6 +52,11 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
         notifyDataSetChanged();
     }
 
+    public List<FavouriteEntry> getTasks()
+    {
+        return list;
+    }
+
     public interface ItemClickListener {
         void onItemClickListener(int itemId);
     }
