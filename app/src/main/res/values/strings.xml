@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Popular Movies App</string>
+    <string name="errorText">CHECK YOUR INTERNET CONNECTION</string>
+    <string name="synopsisText">SYNOPSIS</string>
+</resources>
