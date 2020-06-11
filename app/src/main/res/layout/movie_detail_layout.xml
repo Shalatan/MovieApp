@@ -1,82 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blackBackground"
-    android:orientation="vertical"
     tools:context=".MovieDetailActivity">
-
-    <ImageView
-        android:id="@+id/movieImage"
-        android:layout_width="match_parent"
-        android:layout_height="360dp"
-        android:layout_marginBottom="8dp"
-        android:scaleType="fitCenter" />
-
-    <TextView
-        android:id="@+id/movieName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:gravity="center"
-        android:textColor="@color/whiteText"
-        android:textSize="22sp"
-        android:textStyle="bold" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_marginBottom="8dp">
-
-        <TextView
-            android:id="@+id/movieRating"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:paddingLeft="16dp"
-            android:textColor="@color/greyText"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/movieReleaseDate"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:gravity="center"
-            android:paddingRight="16dp"
-            android:textColor="@color/greyText"
-            android:textSize="16sp" />
-    </RelativeLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_marginBottom="4dp"
-        android:gravity="center"
-        android:text="@string/synopsisText"
-        android:textColor="@color/darkGreenText"
-        android:textStyle="italic" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/movieSyno"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/lightGreenText" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/movieImage"
+                android:layout_width="match_parent"
+                android:layout_height="360dp"
+                android:layout_marginBottom="8dp"
+                android:scaleType="fitCenter" />
+
+            <TextView
+                android:id="@+id/movieName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:textColor="@color/whiteText"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/movieRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingLeft="16dp"
+                    android:textColor="@color/greyText"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/movieReleaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:paddingRight="16dp"
+                    android:textColor="@color/greyText"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="@string/synopsisText"
+                android:textColor="@color/darkGreenText"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/movieSyno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lightGreenText" />
+        </LinearLayout>
     </ScrollView>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/set_favourite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/set_favourite"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|right"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="26dp"
+        android:layout_marginBottom="26dp"
+        android:text="REMOVE FROM FAVOURITE"
+        android:textSize="8sp"
         android:src="@android:drawable/btn_star" />
-
-</LinearLayout>
+</RelativeLayout>

@@ -57,9 +57,6 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.Favo
         return list;
     }
 
-    public interface ItemClickListener {
-        void onItemClickListener(int itemId);
-    }
 
     class FavouriteViewHolder extends RecyclerView.ViewHolder {
         private TextView fTitle;

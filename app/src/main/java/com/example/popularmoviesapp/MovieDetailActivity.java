@@ -1,6 +1,9 @@
 package com.example.popularmoviesapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,22 +31,46 @@ public class MovieDetailActivity extends AppCompatActivity
     int flag = 0;
     private AppDatabase mDb;
     List<FavouriteEntry> favouriteEntries;
+    FavouriteViewModel favouriteViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-        mDb = AppDatabase.getInstance(getApplicationContext());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_detail_layout);
         Intent intent = getIntent();
         setTitle(intent.getStringExtra("title"));
         fillDetailActivity(intent);
+
+        mDb = AppDatabase.getInstance(getApplicationContext());
+
         FloatingActionButton favButton = findViewById(R.id.set_favourite);
         favButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
 
+                for (int i = 0; i < favouriteEntries.size(); i++) {
+                    if (favouriteEntries.get(i).getId() == Integer.parseInt(movieId)) {
+                        flag = 1;
+                    }
+                }
+
+                if (flag == 0) {
+
+                    addToFavourite();
+                    flag = 1;
+                } else {
+                    flag = 0;
+                    deleteFromFavourite();
+                }
+
+            }
+        });
+        favouriteViewModel = ViewModelProviders.of(this).get(FavouriteViewModel.class);
+        favouriteViewModel.getTasks().observe(this, new Observer<List<FavouriteEntry>>() {
+            @Override
+            public void onChanged(List<FavouriteEntry> entries) {
+                favouriteEntries = entries;
             }
         });
     }
