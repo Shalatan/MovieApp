@@ -109,4 +109,38 @@ public class MovieUtils {
         }
         return arrayList;
     }
+
+
+
+    public static ArrayList<String> fetchMovieVideo(String requestUrl) {
+        URL url = createUrl(requestUrl);
+
+        String jsonResponse = null;
+        try {
+            jsonResponse = makeHttpRequest(url);
+        } catch (IOException e) {
+            Log.e("ERROR", "Problem making the HTTP request.", e);
+        }
+        ArrayList<String> MovieData = fetchMovieVideoFromJson(jsonResponse);
+        return MovieData;
+    }
+
+    public static ArrayList<String> fetchMovieVideoFromJson(String movieJson) {
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            JSONObject baseJsonObject = new JSONObject(movieJson);
+            JSONArray jsonArray = baseJsonObject.getJSONArray("results");
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                String key = jsonObject.getString("key");
+                String link = "https://www.youtube.com/watch?v=" + key;
+                arrayList.add(link);
+            }
+        } catch (JSONException e) {
+            Log.e("ERROR", "Error fetching features from json data" + e);
+        }
+        return arrayList;
+    }
+
 }

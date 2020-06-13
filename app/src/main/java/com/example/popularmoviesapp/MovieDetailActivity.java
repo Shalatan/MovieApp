@@ -3,6 +3,7 @@ package com.example.popularmoviesapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -14,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.popularmoviesapp.Adapters.MovieTrailerAdapter;
 import com.example.popularmoviesapp.Favourite.AppDatabase;
 import com.example.popularmoviesapp.Favourite.FavouriteEntry;
 import com.example.popularmoviesapp.Favourite.FavouriteViewModel;
@@ -25,7 +27,6 @@ import java.util.List;
 
 public class MovieDetailActivity extends AppCompatActivity
 {
-    RecyclerView movieTrailerRecyclerView;
     String movieName;
     String movieRelease;
     String movieRating;
@@ -37,6 +38,9 @@ public class MovieDetailActivity extends AppCompatActivity
     List<FavouriteEntry> favouriteEntries;
     FavouriteViewModel favouriteViewModel;
 
+    MovieVideoAsyncTask movieVideoAsyncTask;
+    RecyclerView movieTrailerRecyclerView;
+    MovieTrailerAdapter movieTrailerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -45,8 +49,12 @@ public class MovieDetailActivity extends AppCompatActivity
         Intent intent = getIntent();
         setTitle(intent.getStringExtra("title"));
         fillDetailActivity(intent);
+        updateVideo();
 
+        movieVideoAsyncTask = new MovieVideoAsyncTask();
+        movieVideoAsyncTask.execute(getVideoApiLink(movieId));
         mDb = AppDatabase.getInstance(getApplicationContext());
+
 
         FloatingActionButton favButton = findViewById(R.id.set_favourite);
         favButton.setOnClickListener(new View.OnClickListener() {
@@ -105,8 +113,17 @@ public class MovieDetailActivity extends AppCompatActivity
 
     //Creates VideoApi link from id
     private String getVideoApiLink(String id) {
-        String videoLink = "https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=8f067240d8717f510b4c79abe9f714b7&language=en-US";
+        String videoLink = "https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=ea9a49ebf2b74721a75aae271ebd3036";
         return videoLink;
+    }
+
+    //Initiate Video View with empty ArrayList
+    private void updateVideo() {
+        ArrayList<String> movieVideoArrayList = new ArrayList<String>();
+        movieTrailerRecyclerView = findViewById(R.id.movieTrailerRecyclerView);
+        movieTrailerRecyclerView.setLayoutManager(new GridLayoutManager(this, 5));
+        movieTrailerAdapter = new MovieTrailerAdapter(movieVideoArrayList, MovieDetailActivity.this);
+        movieTrailerRecyclerView.setAdapter(movieTrailerAdapter);
     }
 
     public class MovieVideoAsyncTask extends AsyncTask<String, Void, ArrayList<String>> {
@@ -116,7 +133,6 @@ public class MovieDetailActivity extends AppCompatActivity
             if (movieTrailerRecyclerView.getVisibility() == View.VISIBLE) {
                 movieTrailerRecyclerView.setVisibility(View.GONE);
             }
-            videoLoadImage.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -129,14 +145,12 @@ public class MovieDetailActivity extends AppCompatActivity
         protected void onPostExecute(ArrayList<String> list) {
             super.onPostExecute(list);
 
-            movieVideoAdapter = new MovieVideoAdapter(list, MovieDetailActivity.this);
-            movieTrailerRecyclerView.setAdapter(movieVideoAdapter);
+            movieTrailerAdapter = new MovieTrailerAdapter(list, MovieDetailActivity.this);
+            movieTrailerRecyclerView.setAdapter(movieTrailerAdapter);
 
             if (movieTrailerRecyclerView.getVisibility() == View.GONE) {
                 movieTrailerRecyclerView.setVisibility(View.VISIBLE);
             }
-            videoLoadImage.setVisibility(View.GONE);
-
         }
     }
 
