@@ -1,4 +1,4 @@
-package com.example.popularmoviesapp;
+package com.example.popularmoviesapp.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,8 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.popularmoviesapp.MovieDetailActivity;
+import com.example.popularmoviesapp.Objects.Movie;
+import com.example.popularmoviesapp.R;
 import com.squareup.picasso.Picasso;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
@@ -44,7 +48,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(mContext,MovieDetailActivity.class);
+                Intent intent = new Intent(mContext, MovieDetailActivity.class);
                 Movie movie = mMovieDetailsList.get(position);
                 intent.putExtra("title",movie.getMovieName());
                 intent.putExtra("rating",movie.getMovieRating());

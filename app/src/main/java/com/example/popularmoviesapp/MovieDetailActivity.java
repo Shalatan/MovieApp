@@ -3,8 +3,10 @@ package com.example.popularmoviesapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,10 +20,12 @@ import com.example.popularmoviesapp.Favourite.FavouriteViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieDetailActivity extends AppCompatActivity
 {
+    RecyclerView movieTrailerRecyclerView;
     String movieName;
     String movieRelease;
     String movieRating;
@@ -97,6 +101,43 @@ public class MovieDetailActivity extends AppCompatActivity
             }
         });
         Toast.makeText(MovieDetailActivity.this, "Added to favourite", Toast.LENGTH_SHORT).show();
+    }
+
+    //Creates VideoApi link from id
+    private String getVideoApiLink(String id) {
+        String videoLink = "https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=8f067240d8717f510b4c79abe9f714b7&language=en-US";
+        return videoLink;
+    }
+
+    public class MovieVideoAsyncTask extends AsyncTask<String, Void, ArrayList<String>> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            if (movieTrailerRecyclerView.getVisibility() == View.VISIBLE) {
+                movieTrailerRecyclerView.setVisibility(View.GONE);
+            }
+            videoLoadImage.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected ArrayList<String> doInBackground(String... strings) {
+
+            return MovieUtils.fetchMovieVideo(strings[0]);
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<String> list) {
+            super.onPostExecute(list);
+
+            movieVideoAdapter = new MovieVideoAdapter(list, MovieDetailActivity.this);
+            movieTrailerRecyclerView.setAdapter(movieVideoAdapter);
+
+            if (movieTrailerRecyclerView.getVisibility() == View.GONE) {
+                movieTrailerRecyclerView.setVisibility(View.VISIBLE);
+            }
+            videoLoadImage.setVisibility(View.GONE);
+
+        }
     }
 
     private void fillDetailActivity(Intent intent)

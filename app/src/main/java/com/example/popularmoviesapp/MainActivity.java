@@ -2,14 +2,12 @@ package com.example.popularmoviesapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.loader.content.AsyncTaskLoader;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -19,7 +17,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.popularmoviesapp.Adapters.MovieAdapter;
 import com.example.popularmoviesapp.Favourite.FavouriteListActivity;
+import com.example.popularmoviesapp.Objects.Movie;
 
 import java.util.ArrayList;
 import java.util.List;

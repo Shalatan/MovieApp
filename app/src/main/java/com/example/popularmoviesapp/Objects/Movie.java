@@ -1,4 +1,4 @@
-package com.example.popularmoviesapp;
+package com.example.popularmoviesapp.Objects;
 
 public class Movie{
     private String mMovieName;
