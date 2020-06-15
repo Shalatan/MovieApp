@@ -19,33 +19,33 @@
             <ImageView
                 android:id="@+id/movieImage"
                 android:layout_width="match_parent"
-                android:layout_height="360dp"
-                android:layout_marginBottom="8dp"
+                android:layout_height="@dimen/mdl_image_view_height"
+                android:layout_marginBottom="@dimen/mdl_margin_bottom"
                 android:scaleType="fitCenter" />
 
             <TextView
                 android:id="@+id/movieName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="@dimen/mdl_margin_bottom"
                 android:gravity="center"
                 android:textColor="@color/darkGreenText"
-                android:textSize="22sp"
+                android:textSize="@dimen/mdl_movie_name_text_size"
                 android:textStyle="bold" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_marginBottom="8dp">
+                android:layout_height="@dimen/mdl_block_height"
+                android:layout_marginBottom="@dimen/mdl_margin_bottom">
 
                 <TextView
                     android:id="@+id/movieRating"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
-                    android:paddingLeft="16dp"
+                    android:paddingLeft="@dimen/mdl_rating_block_padding"
                     android:textColor="@color/greyText"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/mdl_rating_block_text_size" />
 
                 <TextView
                     android:id="@+id/movieReleaseDate"
@@ -53,15 +53,15 @@
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"
                     android:gravity="center"
-                    android:paddingRight="16dp"
+                    android:paddingRight="@dimen/mdl_rating_block_padding"
                     android:textColor="@color/greyText"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/mdl_rating_block_text_size" />
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
-                android:layout_marginBottom="4dp"
+                android:layout_height="@dimen/mdl_block_height"
+                android:layout_marginBottom="@dimen/mdl_margin_bottom"
                 android:gravity="center"
                 android:text="@string/synopsisText"
                 android:textColor="@color/darkGreenText"
@@ -71,22 +71,30 @@
                 android:id="@+id/movieSyno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/lightGreenText" />
+                android:textColor="@color/greyText" />
+
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="@dimen/mdl_block_height"
                 android:gravity="center"
-                android:textColor="@color/darkGreenText"
-                android:text="MOVIE TRAILER LINKS"/>
-<!--            <ImageView-->
-<!--                android:id="@+id/trailer_load_image"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_gravity="center"-->
-<!--                app:srcCompat="@drawable/loading" />-->
+                android:text="@string/trailerText"
+                android:textColor="@color/darkGreenText" />
+
             <androidx.recyclerview.widget.RecyclerView
-                android:visibility="gone"
                 android:id="@+id/movieTrailerRecyclerView"
+                android:layout_width="match_parent"
+                android:scrollbarAlwaysDrawVerticalTrack="false"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/mdl_block_height"
+                android:gravity="center"
+                android:text="@string/reviewText"
+                android:textColor="@color/darkGreenText" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/movieReviewRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </LinearLayout>
@@ -99,9 +107,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|right"
-        android:layout_marginRight="26dp"
-        android:layout_marginBottom="26dp"
-        android:text="REMOVE FROM FAVOURITE"
-        android:textSize="8sp"
-        android:src="@android:drawable/btn_star" />
+        android:layout_marginRight="@dimen/fab_margins"
+        android:layout_marginBottom="@dimen/fab_margins"
+        android:src="@android:drawable/btn_star"/>
 </RelativeLayout>

@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Popular Movies App</string>
     <string name="errorText">CHECK YOUR INTERNET CONNECTION</string>
+
+    <!--Movie Detail Layout Texts-->
     <string name="synopsisText">SYNOPSIS</string>
+    <string name="trailerText">MOVIE TRAILER LINKS</string>
+    <string name="reviewText">MOVIE REVIEW</string>
+
 </resources>

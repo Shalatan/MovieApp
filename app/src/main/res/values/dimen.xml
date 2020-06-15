@@ -3,4 +3,25 @@
     <dimen name="movie_title_padding">10dp</dimen>
     <dimen name="movie_title">15dp</dimen>
     <dimen name="movie_cover_height">160dp</dimen>
+
+<!-- Main Activity Dimensions-->
+    <dimen name="rv_margin">8dp</dimen>
+
+<!--Item Layout Dimensions-->
+    <dimen name="card_view_height">320dp</dimen>
+    <dimen name="card_view_width">180dp</dimen>
+    <dimen name="card_view_margin">8dp</dimen>
+
+<!--Movie Detail Activity-->
+    <dimen name="mdl_movie_name_text_size">22sp</dimen>
+    <dimen name="mdl_rating_block_text_size">16sp</dimen>
+    <dimen name="mdl_image_view_height">360dp</dimen>
+    <dimen name="mdl_margin_bottom">8dp</dimen>
+    <dimen name="mdl_block_height">36dp</dimen>
+    <dimen name="mdl_rating_block_padding">16dp</dimen>
+    <dimen name="fab_margins">26dp</dimen>
+
+<!--Movie Trailer Layout-->
+    <dimen name="tv_dimensions">66dp</dimen>
+
 </resources>
