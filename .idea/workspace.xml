@@ -21,8 +21,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/popularmoviesapp/MovieDetailActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/popularmoviesapp/MovieDetailActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/popularmoviesapp/MovieUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/popularmoviesapp/MovieUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/popularmoviesapp/Favourite/FavouriteListActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/popularmoviesapp/Favourite/FavouriteListActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_favourite_list.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_favourite_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/favourite_item.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/favourite_item.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/movie_detail_layout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/movie_detail_layout.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,8 +50,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="layoutResourceFile" />
         <option value="Class" />
+        <option value="layoutResourceFile" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -183,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592090352216</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Successful changes to show movie trailers">
+      <created>1592092686487</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1592092686487</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +213,7 @@
     <MESSAGE value="Used ViewModel and LiveData while storing and fetching data from database" />
     <MESSAGE value="Completed build for add to favourite feature." />
     <MESSAGE value="Added review and trailer Adapters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added review and trailer Adapters" />
+    <MESSAGE value="Successful changes to show movie trailers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Successful changes to show movie trailers" />
   </component>
 </project>
