@@ -123,6 +123,7 @@ public class MovieUtils {
         ArrayList<String> MovieData = fetchMovieVideoFromJson(jsonResponse);
         return MovieData;
     }
+
     public static ArrayList<String> fetchMovieVideoFromJson(String movieJson) {
         ArrayList<String> arrayList = new ArrayList<>();
         try {
@@ -153,6 +154,7 @@ public class MovieUtils {
         ArrayList<MovieReview> MovieData = fetchMovieReviewFromJson(jsonResponse);
         return MovieData;
     }
+
     public static ArrayList<MovieReview> fetchMovieReviewFromJson(String movieJson) {
         ArrayList<MovieReview> arrayList = new ArrayList<>();
         try {

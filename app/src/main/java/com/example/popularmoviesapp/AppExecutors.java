@@ -8,8 +8,7 @@ import androidx.annotation.NonNull;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-public class AppExecutors
-{
+public class AppExecutors {
     private static final Object LOCK = new Object();
     private static AppExecutors sInstance;
     private final Executor diskIO;
@@ -35,8 +34,8 @@ public class AppExecutors
     }
 
     public Executor diskIO() {
-    return diskIO;
-}
+        return diskIO;
+    }
 
     public Executor mainThread() {
         return mainThread;

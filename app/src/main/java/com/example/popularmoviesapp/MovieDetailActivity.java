@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,8 +27,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MovieDetailActivity extends AppCompatActivity
-{
+public class MovieDetailActivity extends AppCompatActivity {
     String movieName;
     String movieRelease;
     String movieRating;
@@ -48,9 +46,9 @@ public class MovieDetailActivity extends AppCompatActivity
     MovieVideoAsyncTask movieVideoAsyncTask;
     RecyclerView movieTrailerRecyclerView;
     MovieTrailerAdapter movieTrailerAdapter;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_detail_layout);
         Intent intent = getIntent();
@@ -99,11 +97,10 @@ public class MovieDetailActivity extends AppCompatActivity
     }
 
     private void deleteFromFavourite() {
-        final FavouriteEntry favouriteEntry = new FavouriteEntry(Integer.parseInt(movieId),movieName,movieRelease,movieRating);
+        final FavouriteEntry favouriteEntry = new FavouriteEntry(Integer.parseInt(movieId), movieName, movieRelease, movieRating);
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 mDb.favouriteDao().deleteFavourite(favouriteEntry);
             }
         });
@@ -111,11 +108,10 @@ public class MovieDetailActivity extends AppCompatActivity
     }
 
     private void addToFavourite() {
-        final FavouriteEntry favouriteEntry = new FavouriteEntry(Integer.parseInt(movieId),movieName,movieRelease,movieRating);
+        final FavouriteEntry favouriteEntry = new FavouriteEntry(Integer.parseInt(movieId), movieName, movieRelease, movieRating);
         AppExecutors.getInstance().diskIO().execute(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 mDb.favouriteDao().insertFavourite(favouriteEntry);
             }
         });
@@ -127,6 +123,7 @@ public class MovieDetailActivity extends AppCompatActivity
         String videoLink = "https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=ea9a49ebf2b74721a75aae271ebd3036";
         return videoLink;
     }
+
     private void updateVideo() {
         ArrayList<String> movieVideoArrayList = new ArrayList<String>();
         movieTrailerRecyclerView = findViewById(R.id.movieTrailerRecyclerView);
@@ -166,6 +163,7 @@ public class MovieDetailActivity extends AppCompatActivity
         String reviewLink = "https://api.themoviedb.org/3/movie/" + id + "/reviews?api_key=ea9a49ebf2b74721a75aae271ebd3036";
         return reviewLink;
     }
+
     private void updateReviews() {
         ArrayList<MovieReview> movieReviewArrayList = new ArrayList<>();
         movieReviewRecyclerView = findViewById(R.id.movieReviewRecyclerView);
@@ -173,6 +171,7 @@ public class MovieDetailActivity extends AppCompatActivity
         movieReviewAdapter = new MovieReviewAdapter(movieReviewArrayList, MovieDetailActivity.this);
         movieReviewRecyclerView.setAdapter(movieReviewAdapter);
     }
+
     public class MovieReviewAsyncTask extends AsyncTask<String, Void, ArrayList<MovieReview>> {
 
         @Override
@@ -202,8 +201,7 @@ public class MovieDetailActivity extends AppCompatActivity
     //Loading Reviews ends
 
 
-    private void fillDetailActivity(Intent intent)
-    {
+    private void fillDetailActivity(Intent intent) {
         movieName = intent.getStringExtra("title");
         movieRating = intent.getStringExtra("rating");
         movieSyno = intent.getStringExtra("synopsis");

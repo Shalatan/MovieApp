@@ -1,13 +1,12 @@
 package com.example.popularmoviesapp.Objects;
 
-public class Movie{
+public class Movie {
     private String mMovieName;
     private String mMovieRating;
     private String mMovieImage;
     private String mMovieSynopsis;
     private String mMovieReleaseDate;
     private String mMovieId;
-
 
 
     public Movie(String movieName, String movieRating, String movieImage, String movieSynopsis, String movieReleaseDate, String movieId) {
@@ -39,7 +38,9 @@ public class Movie{
         return mMovieReleaseDate;
     }
 
-    public String getmMovieId() { return mMovieId; }
+    public String getmMovieId() {
+        return mMovieId;
+    }
 
 
 }

@@ -31,7 +31,6 @@ public class FavouriteListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourite_list);
 
-
         mRecyclerView = findViewById(R.id.recyclerViewTasks);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         DividerItemDecoration decoration = new DividerItemDecoration(getApplicationContext(), VERTICAL);

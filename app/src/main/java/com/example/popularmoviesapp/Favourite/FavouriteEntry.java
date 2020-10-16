@@ -4,8 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "favourite")
-public class FavouriteEntry
-{
+public class FavouriteEntry {
     @PrimaryKey
     private int mId;
     private String mTitle;

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Popular Movies App.iml" filepath="$PROJECT_DIR$/Popular Movies App.iml" group="Popular Movies App" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Popular_Movies_App.iml" filepath="$PROJECT_DIR$/.idea/modules/Popular_Movies_App.iml" group="Popular_Movies_App" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="Popular Movies App/app" />
     </modules>
   </component>

@@ -5,11 +5,11 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+
 import java.util.List;
 
 @Dao
-public interface FavouriteDao
-{
+public interface FavouriteDao {
     @Query("SELECT * FROM favourite")
     LiveData<List<FavouriteEntry>> loadAllFavourites();
 
